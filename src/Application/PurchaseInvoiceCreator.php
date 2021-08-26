@@ -28,6 +28,7 @@ final class PurchaseInvoiceCreator
             $request->getStatus(),
             $request->getObservations()
         );
+
         $this->repository->save($purchaseInvoice);
     }
 }
