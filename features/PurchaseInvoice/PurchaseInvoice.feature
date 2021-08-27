@@ -1,4 +1,5 @@
 Feature: Create a new purchase invoice
+
     Scenario: Create a new purchase invoice
         Given the body:
         """
@@ -8,7 +9,7 @@ Feature: Create a new purchase invoice
             "date": "2021-05-01",
             "createdBy": "Annelys",
             "status": "Pendiente",
-            "observations": "en proceso",
+            "observations": "en proceso"
         """
         When using the url "api/purchase_invoice" with post method
         Then should response with code 201

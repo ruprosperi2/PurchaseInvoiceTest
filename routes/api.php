@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Src\Infrastructure\Controllers\CreatePurchaseInvoiceController;
+use Src\Infrastructure\Controllers\PurchaseInvoicePostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +15,4 @@ use Src\Infrastructure\Controllers\CreatePurchaseInvoiceController;
 |
 */
 
-Route::post("purchase_invoice", CreatePurchaseInvoiceController::class);
+Route::post("purchase_invoice", PurchaseInvoicePostController::class);

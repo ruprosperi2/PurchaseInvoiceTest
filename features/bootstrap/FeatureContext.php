@@ -1,11 +1,8 @@
 <?php
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
 use GuzzleHttp\Client;
-use GuzzleHttp\RequestOptions;
 
 /**
  * Defines application features from the specific context.
@@ -43,8 +40,10 @@ class FeatureContext implements Context
      */
     public function usingTheUrlWithPostMethod($uri)
     {
-        $this->response = $this->client->post($uri,[
-           RequestOptions::JSON => json_decode($this->body, true)
+        $bodySanitized = json_decode('{' . ((string)str_replace("\n", "", $this->body)) . '}', true);
+
+        $this->response = $this->client->post($uri, [
+            'form_params' => $bodySanitized
         ]);
     }
 

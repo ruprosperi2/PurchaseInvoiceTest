@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-
 namespace Src\Infrastructure\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Src\Application\PurchaseInvoiceCreator;
 use Src\Application\PurchaseInvoiceCreatorRequest;
+use Symfony\Component\HttpFoundation\Response;
 
-final class CreatePurchaseInvoiceController
+final class PurchaseInvoicePostController
 {
     private $creator;
 
@@ -21,8 +21,7 @@ final class CreatePurchaseInvoiceController
 
     public function __invoke(Request $request): JsonResponse
     {
-
-        /*($this->creator)(new PurchaseInvoiceCreatorRequest(
+        ($this->creator)(new PurchaseInvoiceCreatorRequest(
             $request->id,
             $request->supplier,
             $request->payTerm,
@@ -30,9 +29,8 @@ final class CreatePurchaseInvoiceController
             $request->createdBy,
             $request->status,
             $request->observations
-        ));*/
+        ));
 
-
-        return new JsonResponse([], JsonResponse::HTTP_CREATED);
+        return new JsonResponse([], Response::HTTP_CREATED);
     }
 }
