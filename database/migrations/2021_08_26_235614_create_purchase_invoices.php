@@ -14,7 +14,8 @@ class CreatePurchaseInvoices extends Migration
     public function up()
     {
         Schema::create('purchase_invoices', function (Blueprint $table) {
-            $table->id();
+            $table->string('id');
+            $table->primary('id');
             $table->string("supplier");
             $table->string("payTerm");
             $table->date("date");
