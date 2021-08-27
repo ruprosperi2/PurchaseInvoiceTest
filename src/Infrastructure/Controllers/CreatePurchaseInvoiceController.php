@@ -22,7 +22,7 @@ final class CreatePurchaseInvoiceController
     public function __invoke(Request $request): JsonResponse
     {
 
-       /* ($this->creator)(new PurchaseInvoiceCreatorRequest(
+        /*($this->creator)(new PurchaseInvoiceCreatorRequest(
             $request->id,
             $request->supplier,
             $request->payTerm,
@@ -30,8 +30,8 @@ final class CreatePurchaseInvoiceController
             $request->createdBy,
             $request->status,
             $request->observations
-        ));
-       */
+        ));*/
+
 
         return new JsonResponse([], JsonResponse::HTTP_CREATED);
     }
